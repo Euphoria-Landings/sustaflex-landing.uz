@@ -37,25 +37,7 @@ export default function SourceInfo() {
       </div>
 
       <div className="max-w-[1100px] mx-auto px-4">
-        {/* MANBALAR QISMI */}
-        <div className="space-y-6 mb-20">
-          <h4 className="text-[#1A1A1A] text-[15px] font-black italic underline decoration-red-600 decoration-2 underline-offset-8">
-            Ma'lumot manbalari
-          </h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-            {sources.map((text, i) => (
-              <p
-                key={i}
-                className="text-[#1A1A1A]/50 text-[10px] leading-relaxed pl-4 border-l-2 border-gray-100 hover:border-red-600 transition-colors duration-300"
-              >
-                <span className="font-black text-red-600/70 mr-1">
-                  {i + 1}.
-                </span>{" "}
-                {text}
-              </p>
-            ))}
-          </div>
-        </div>
+    
 
         {/* FOOTER NAVIGATSIYASI */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">

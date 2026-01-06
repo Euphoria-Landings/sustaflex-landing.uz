@@ -3,23 +3,24 @@ import Image from "next/image";
 
 export default function Composition() {
   const mainFeatures = {
-    glyukozamin: [
-      "Bo'g'imlarda qulaylik hissini saqlab qolish",
-      "Bo'g'imlarning harakatchanligini oshirish",
-      "Xaftaga to'qimasida metabolik jarayonlarni yaxshilash",
+    // 1-Karta uchun yangi ma'lumotlar
+    msm: [
+      "Paylarni mustahkamlaydi",
+      "Bo'g'imlar atrofidagi yallig'lanishni kamaytiradi",
     ],
-    kondroitin: [
-      "Sog'lom tog'ay to'qimasini qo'llab-quvvatlash",
-      "Kollagen ishlab chiqarishni rag'batlantirish",
-      "Bog'lamlarning elastikligi va moslashuvchanligi",
+    // 2-Karta uchun yangi ma'lumotlar
+    extracts: [
+      "Bosveliya ekstrakti — yallig'lanishga qarshi xususiyatlarga ega",
+      "Vitamin C va maral ildizi — umumiy immunitetni rag'batlantiradi",
+      "To'qimalarda tiklanish jarayonlarini faollashtiradi",
     ],
   };
 
   const minerals = [
-    { name: "Kalsiy", desc: "Suyak to'qimasini mustahkamlaydi" },
-    { name: "Magniy", desc: "Mushaklar va nerv tizimini normallashtiradi" },
-    { name: "Fosfor", desc: "Energiya almashinuvi va suyak mineralizatsiyasi" },
-    { name: "Vitamin D3", desc: "Kalsiyning so'rilishini ta'minlaydi" },
+    { name: "MSM", desc: "Metilsulfonilmetan" },
+    { name: "Bosveliya", desc: "Tabiiy ekstrakt" },
+    { name: "Vitamin C", desc: "Immunitet va tiklanish" },
+    { name: "Maral ildizi", desc: "Energizer va regeneratsiya" },
   ];
 
   return (
@@ -36,16 +37,19 @@ export default function Composition() {
         </div>
 
         <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8">
-          {/* 1-Karta: Glyukozamin */}
+          {/* 1-Karta: MSM (Metilsulfonilmetan) */}
           <div className="w-full lg:w-[400px] bg-white rounded-[40px] p-8 md:p-10 shadow-xl border border-gray-100 relative z-10 transition-all hover:-translate-y-2">
             <div className="mb-8">
               <h3 className="text-[#FF9F43] text-2xl font-black uppercase italic">
-                Glyukozamin
+                MSM
               </h3>
+              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">
+                Metilsulfonilmetan
+              </p>
               <div className="h-1 w-12 bg-[#FF9F43] mt-2 rounded-full" />
             </div>
             <ul className="space-y-6">
-              {mainFeatures.glyukozamin.map((item, i) => (
+              {mainFeatures.msm.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-red-600" />
@@ -58,7 +62,7 @@ export default function Composition() {
             </ul>
           </div>
 
-          {/* MARKAZIY QISM: Rasm va Minerallar */}
+          {/* MARKAZIY QISM: Rasm va Asosiy Tarkib */}
           <div className="flex flex-col items-center gap-8 z-20">
             <div className="w-48 h-48 md:w-64 md:h-64 relative group">
               <div className="absolute inset-0 bg-white rounded-full shadow-2xl flex items-center justify-center p-4 border-8 border-red-600/5">
@@ -71,17 +75,17 @@ export default function Composition() {
               </div>
             </div>
 
-            {/* Minerallar setkasi */}
+            {/* Tarkib qismlari setkasi */}
             <div className="grid grid-cols-2 gap-3 w-full max-w-[400px]">
               {minerals.map((m, idx) => (
                 <div
                   key={idx}
                   className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm text-center"
                 >
-                  <h4 className="text-red-600 font-black text-xs uppercase mb-1">
+                  <h4 className="text-red-600 font-black text-[10px] uppercase mb-1 leading-tight">
                     {m.name}
                   </h4>
-                  <p className="text-[10px] text-gray-400 font-bold leading-tight">
+                  <p className="text-[9px] text-gray-400 font-bold leading-tight">
                     {m.desc}
                   </p>
                 </div>
@@ -89,16 +93,19 @@ export default function Composition() {
             </div>
           </div>
 
-          {/* 2-Karta: Kondroitin */}
+          {/* 2-Karta: Ekstraktlar va Vitaminlar */}
           <div className="w-full lg:w-[400px] bg-white rounded-[40px] p-8 md:p-10 shadow-xl border border-gray-100 relative z-10 transition-all hover:-translate-y-2">
             <div className="mb-8">
               <h3 className="text-[#FF9F43] text-2xl font-black uppercase italic">
-                Kondroitin
+                KOMPLEKS
               </h3>
+              <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">
+                Ekstraktlar va Vitamin C
+              </p>
               <div className="h-1 w-12 bg-[#FF9F43] mt-2 rounded-full" />
             </div>
             <ul className="space-y-6">
-              {mainFeatures.kondroitin.map((item, i) => (
+              {mainFeatures.extracts.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <div className="w-5 h-5 rounded-full bg-red-50 flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-2 h-2 rounded-full bg-red-600" />

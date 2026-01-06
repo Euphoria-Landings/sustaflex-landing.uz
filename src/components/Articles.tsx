@@ -12,7 +12,7 @@ export default function Articles() {
       title: "Bo'g'im muammolarida parhez",
       description:
         "To'g'ri ovqatlanish orqali bo'g'imlardagi yallig'lanishni kamaytirish va kalsiy miqdorini tiklash sirlari.",
-      imgSrc: "/susta1.webp",
+      imgSrc: "/flacon.png",
       category: "Oziqlanish",
     },
     {

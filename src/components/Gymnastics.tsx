@@ -6,19 +6,19 @@ export default function Gymnastics() {
     {
       title: "TIRSAK",
       subtitle: "BO'G'IMI",
-      imgSrc: "/01.png",
+      imgSrc: "/rasm1.png",
       color: "from-red-50 to-red-100",
     },
     {
       title: "CHANOQ-SON",
       subtitle: "BO'G'IMI",
-      imgSrc: "/02.png",
+      imgSrc: "/rasm2.png",
       color: "from-gray-50 to-gray-100",
     },
     {
       title: "TIZZA",
       subtitle: "BO'G'IMI",
-      imgSrc: "/tizzaa.png",
+      imgSrc: "/rasm3.png",
       color: "from-red-100 to-red-200",
     },
   ];

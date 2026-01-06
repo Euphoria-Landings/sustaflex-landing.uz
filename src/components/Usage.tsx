@@ -48,13 +48,16 @@ export default function Usage() {
       <div className="max-w-[1100px] mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
         {/* CHAP TOMON: MATNLAR */}
         <div className="w-full md:w-1/2 space-y-8">
-          {/* SARLAVHA: YARMI QORA YARMI QIZIL */}
           <h2 className="text-[32px] md:text-[42px] font-black italic leading-tight tracking-tighter">
             <span className="text-[#1A1A1A]">СУСТА</span>
             <span className="text-red-600">ФЛЕКС</span>
             <br />
-            <span className="text-[#1A1A1A] not-italic">olish uchun </span>
-            <span className="text-red-600 italic">qulay</span>
+            <span className="text-[#1A1A1A] not-italic text-[28px] md:text-[38px]">
+              olish uchun{" "}
+            </span>
+            <span className="text-red-600 italic text-[28px] md:text-[38px]">
+              qulay
+            </span>
           </h2>
 
           <div className="space-y-6">
@@ -75,52 +78,34 @@ export default function Usage() {
             ))}
           </div>
 
-          {/* Kurs tavsiyasi bloki */}
           <div className="bg-white rounded-2xl p-6 border-2 border-red-50 shadow-lg shadow-red-100/30 max-w-[320px]">
             <p className="text-red-600 text-[10px] font-black uppercase tracking-widest mb-2">
               KONDROPROTEKTORLARNING <br /> TAVSIYA ETILGAN KURSI
             </p>
             <h3 className="text-[#FF9F43] text-4xl font-black italic">
               Yiliga 2-3 marta
-              <span className="text-[12px] align-top ml-1 text-[#1A1A1A]">
-                5.6
-              </span>
             </h3>
           </div>
         </div>
 
-        {/* O'NG TOMON: VIZUAL */}
-        <div className="w-full md:w-1/2 relative flex justify-center items-center">
-          <div className="relative w-full max-w-[450px] aspect-square">
-            {/* Kapsula blisteri */}
-            <div className="absolute top-0 right-10 z-10 w-[240px] md:w-[280px] -rotate-[15deg] transition-transform hover:-translate-y-2 duration-500">
-              <div className="w-full h-full bg-white rounded-xl border border-gray-200 shadow-xl p-3 flex flex-wrap gap-2 justify-center content-center">
-                {[...Array(10)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-12 bg-red-600 rounded-full shadow-inner border-2 border-white opacity-90"
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Mahsulot qutisi - Susta va Flex yozuvi bu yerda ham ikki xil */}
-            <div className="absolute bottom-10 left-10 z-20 w-[280px] md:w-[320px] rotate-[10deg] drop-shadow-[0_35px_60px_rgba(227,30,36,0.2)]">
-              <div className="relative aspect-[1.2/1] bg-gradient-to-br from-[#B22222] to-red-600 rounded-xl border-4 border-white overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                  <div className="mt-4 px-4 py-2 bg-white/20 rounded-lg text-[10px]">
-                    <Image
-                      src="/susta.png"
-                      alt="SustaFlex Box"
-                      fill
-                      className="object-contain p-2"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-red-100/20 blur-[100px] rounded-full -z-10" />
+        {/* O'NG TOMON: VIZUAL (Animatsiyasiz, gradient maskali) */}
+        <div className="w-full md:w-1/2 relative h-[350px] md:h-[500px]">
+          <div
+            className="relative w-full h-full rounded-[20px] overflow-hidden"
+            style={{
+              // Chapdan o'ngga qarab prazrachniy qilish
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0%, black 50%)",
+              maskImage: "linear-gradient(to right, transparent 0%, black 50%)",
+            }}
+          >
+            <Image
+              src="/icon.png"
+              alt="SustaFlex Icon"
+              fill
+              className="object-cover rounded-[20px]"
+              priority
+            />
           </div>
         </div>
       </div>

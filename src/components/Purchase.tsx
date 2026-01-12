@@ -92,10 +92,7 @@ export default function Purchase() {
           {cards.map((card, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
+           
               className="bg-white/80 backdrop-blur-md rounded-[40px] p-10 shadow-[0_15px_40px_rgba(0,0,0,0.03)] border border-white hover:border-gray-200 hover:shadow-[0_30px_60px_rgba(0,0,0,0.06)] transition-all duration-500 group"
             >
               <div className="mb-8 transform group-hover:rotate-[10deg] transition-transform duration-500">
@@ -113,8 +110,7 @@ export default function Purchase() {
 
         {/* LOGO QISMI */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+       
           className="flex flex-col items-center text-center space-y-6 mb-16"
         >
           <h2 className="text-[50px] md:text-[80px] font-black italic tracking-tighter leading-none">
@@ -151,16 +147,8 @@ export default function Purchase() {
           ].map((pill, i) => (
             <motion.div
               key={i}
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, 10, -10, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                delay: pill.delay,
-                ease: "easeInOut",
-              }}
+     
+          
               className={`${pill.size} ${pill.color} rounded-full shadow-lg border border-white/50 ${pill.rotate}`}
             />
           ))}

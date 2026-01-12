@@ -5,16 +5,7 @@ import OrderModal from "./OrderModal";
 export default function SourceInfo() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const sources = [
-    "Aghazadeh-Habashi A., Jamali F. The glucosamine controversy; a pharmacokinetic issue // Journal of Pharmacy & Pharmaceutical Sciences. — 2011. — T. 14. — № 2. — С. 264-273.",
-    "Setnikar I., Palumbo R., Canali S., Zanolo G. Pharmacokinetics of glucosamine in man. Arzneimittelforschung. 1993 Oct;43(10):1109-13.",
-    "Biolojik aktiv qo'shimchani qo'llash bo'yicha ko'rsatma АртроФлекс. SGR № RU.77.99.11.003.R.00473.02.16 24.02.2016 y.",
-    "Dorixonalardagi narxlar tahlili asosida, tarkibidagi faol komponentlar (glyukozamin va xondroitin sulfat) miqdori bo'yicha hisoblangan.",
-    "Ushakova O.A., Lukyanov S.A. Glyukozamin va xondroitin: osteoartritni davolashda samaradorlik va xavfsizlik masalalari. Terapevtik arxiv. 2018; 90(5): 104-111.",
-    "Rodionova S.S., Shvets V.V. Klinicheskaya farmakologiya xondroprotektorov // Obzori klinicheskoy farmakologii i lekarstvennoy terapii. — T. 13. — № 3. — S. 10-23.",
-    "Kovaleva I.R., Parfenova V.A. va boshqalar. Glyukozamin va xondroitin sulfatning tizza va chanoq-son bo'g'imlari osteoartritida samaradorligini baholash. 2020.",
-    "Yeryomushkin M.A., Axmedova T.A. BO'G'IMLAR, TOG'AY, KOLLAGEN // Travma. 2020. № 4. S. 5-12.",
-  ];
+
 
   const menuItems = [
     { name: "Afzalliklar", href: "#features" },
@@ -27,14 +18,7 @@ export default function SourceInfo() {
 
   return (
     <section className="w-full bg-white pt-10 pb-16">
-      {/* 1. OGOHLANTIRISH CHIZIQLARI */}
-      <div className="w-full border-y-[1px] border-red-600/20 py-6 mb-12 bg-red-50/20">
-        <div className="max-w-[1100px] mx-auto px-4 text-center">
-          <p className="text-red-600 font-black text-lg md:text-2xl tracking-[2px] uppercase italic">
-            BQM. DORI VOSITASI HISOBLANMAYDI.
-          </p>
-        </div>
-      </div>
+    
 
       <div className="max-w-[1100px] mx-auto px-4">
     
@@ -76,14 +60,6 @@ export default function SourceInfo() {
           </div>
         </div>
 
-        {/* Copyright qismi */}
-        <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[#1A1A1A]/40 text-[11px] font-medium">
-          <p>© 2024 SUSTAFLEX. Barcha huquqlar himoyalangan.</p>
-          <div className="flex gap-6 italic">
-            <span>O'zbekistonda ishlab chiqarilgan</span>
-            <span className="text-red-600/50 font-black">18+</span>
-          </div>
-        </div>
       </div>
 
       {/* MODAL */}

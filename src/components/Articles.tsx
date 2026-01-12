@@ -57,7 +57,7 @@ export default function Articles() {
           {articles.map((article, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col h-[500px] bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 border border-gray-100"
+              className="group relative flex flex-col h-[350px] bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-500 border border-gray-100"
             >
               {/* Rasm qismi (45%) */}
               <div className="relative h-[45%] w-full">
@@ -76,7 +76,7 @@ export default function Articles() {
 
               {/* Matn qismi (55%) */}
               <div className="flex-1 p-8 flex flex-col">
-                <h3 className="text-[#1A1A1A] font-black text-[20px] leading-tight uppercase tracking-tight mb-4 group-hover:text-red-600 transition-colors">
+                <h3 className="text-[#1A1A1A] font-black text-[16px] leading-tight uppercase tracking-tight mb-4 group-hover:text-red-600 transition-colors">
                   {article.title}
                 </h3>
 

@@ -20,26 +20,7 @@ export default function MainFooter() {
 
           {/* 2. ASOSIY MA'LUMOTLAR (O'zbekiston lokatsiyasi) */}
           <div className="flex-1 max-w-[550px] space-y-6 text-[11px] md:text-[12px] leading-relaxed">
-            <div className="space-y-2">
-              <p className="font-medium text-white/60">
-                <span className="font-black text-white uppercase tracking-wider text-[10px] border-b border-red-600/50 pb-0.5">
-                  Ishlab chiqaruvchi:
-                </span>{" "}
-                Softgel Healthcare Privat Limited, Survay No 20/1, Vandalur –
-                Kelambakkar Road, Pudupakkam Village, Tamilnadu – 603103,
-                Hindiston.
-              </p>
-            </div>
-
             <div className="space-y-3 p-4 bg-white/5 rounded-2xl border border-white/10">
-              <p className="font-medium">
-                Savollar yoki e'tirozlar yuzaga kelgan taqdirda O'zbekistondagi
-                rasmiy vakilga murojaat qiling.
-              </p>
-              <p className="font-medium text-white/60">
-                <span className="text-white font-bold">Manzil:</span> Toshkent
-                sh., Chilonzor tumani, Qatortol ko'chasi, 25-uy.
-              </p>
               <div className="flex flex-wrap items-center gap-y-2">
                 <p className="font-medium">
                   <span className="text-white font-bold">Tel:</span>{" "}
@@ -47,25 +28,12 @@ export default function MainFooter() {
                     href="tel:+998712000000"
                     className="text-red-500 hover:text-red-400 transition-colors font-bold"
                   >
-                    +998 (71) 200-00-00
+                    +998 (55) 517-01-47
                   </a>
                 </p>
                 <span className="mx-3 opacity-30 hidden md:inline">|</span>
-                <p className="font-medium">
-                  <span className="text-white font-bold">Email:</span>{" "}
-                  <a
-                    href="mailto:info@sustaflex.uz"
-                    className="text-red-500 hover:text-red-400 transition-colors"
-                  >
-                    info@sustaflex.uz
-                  </a>
-                </p>
               </div>
             </div>
-
-            <p className="text-white/30 pt-2 font-bold uppercase tracking-[2px] text-[10px]">
-              O'zR SSV ro'yxatidan o'tgan: № 008.73.02.16
-            </p>
           </div>
 
           {/* 3. HUQUQIY LINKLAR */}

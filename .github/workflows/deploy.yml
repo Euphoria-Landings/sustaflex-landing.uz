@@ -2,11 +2,11 @@ name: Deploy Sustaflex Landing
 
 on:
   push:
-    branches: [ main ] # Agar branch nomi 'master' bo'lsa, master deb yozing
+    branches: [ main, master ] # Ikkala branchga ham reaksiya beradi
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X64] # Aniq label yozdik
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,6 +23,5 @@ jobs:
 
       - name: Copy to Web Folder
         run: |
-          # Sustaflex uchun maxsus yo'l
           rm -rf /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/*
           cp -r out/* /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/

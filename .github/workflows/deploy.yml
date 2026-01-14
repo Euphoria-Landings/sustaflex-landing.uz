@@ -1,0 +1,28 @@
+name: Deploy Sustaflex Landing
+
+on:
+  push:
+    branches: [ main ] # Agar branch nomi 'master' bo'lsa, master deb yozing
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build Project
+        run: |
+          npm ci
+          npm run build
+
+      - name: Copy to Web Folder
+        run: |
+          # Sustaflex uchun maxsus yo'l
+          rm -rf /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/*
+          cp -r out/* /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/

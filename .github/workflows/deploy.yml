@@ -2,26 +2,34 @@ name: Deploy Sustaflex Landing
 
 on:
   push:
-    branches: ["**"]
+    branches: ["**"] # Har qanday branchga push bo'lganda ishlaydi
+
+# GitHub'dagi "Read and write" tugmasi o'rniga kod orqali ruxsat beramiz
+permissions:
+  contents: write
+  packages: write
+  actions: read
 
 jobs:
   deploy:
     runs-on: [self-hosted, Linux, X64]
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Build Project
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Copy to Web Folder
+      - name: Build project
+        run: npm run build
+
+      - name: Copy files to web folder
         run: |
+          # Serverdagi papkani tozalash va yangi buildni nusxalash
           rm -rf /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/*
           cp -r out/* /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/

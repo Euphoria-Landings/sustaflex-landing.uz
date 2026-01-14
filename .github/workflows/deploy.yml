@@ -2,11 +2,11 @@ name: Deploy Sustaflex Landing
 
 on:
   push:
-    branches: [ main, master ] # Ikkala branchga ham reaksiya beradi
+    branches: ["**"]
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Linux, X64] # Aniq label yozdik
+    runs-on: [self-hosted, Linux, X64]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

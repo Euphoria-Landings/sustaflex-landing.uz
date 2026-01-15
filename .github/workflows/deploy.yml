@@ -12,8 +12,6 @@ permissions:
 jobs:
   deploy:
     runs-on: [self-hosted, Linux, X64]
-    
-    # Bir vaqtda bir nechta build bo'lib ketsa, eski jarayonni to'xtatadi
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
@@ -26,28 +24,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm' # npm keshini ishlatadi (tezroq build)
+          cache: 'npm'
 
       - name: 📦 Kutubxonalarni o'rnatish
-        run: |
-          echo "Dependencies o'rnatilmoqda..."
-          npm ci
+        run: npm ci
 
       - name: 🏗️ Loyihani Build qilish
-        run: |
-          echo "Loyiha build qilinmoqda..."
-          npm run build
+        run: npm run build
 
       - name: 🚀 Serverga Deploy qilish
         run: |
-          echo "Eski fayllar tozalanmoqda..."
           TARGET_DIR="/home/user/Projects/Euphoria/lands/sustaflex-landing.uz"
-          
-          # Papka mavjudligini tekshirish, bo'lmasa yaratish
           mkdir -p $TARGET_DIR
           
-          # Fayllarni xavfsiz nusxalash
-          rm -rf $TARGET_DIR/*
-          cp -r out/* $TARGET_DIR/
+          # Next.js ba'zan 'out', ba'zan 'build' papkasini yaratishi mumkin.
+          # Biz qaysi biri mavjudligini tekshiramiz:
+          if [ -d "out" ]; then
+            SOURCE_DIR="out"
+          elif [ -d ".next" ]; then
+            SOURCE_DIR=".next"
+          else
+            echo "❌ Build papkasi topilmadi!"
+            exit 1
+          fi
           
+          echo "Deploying from $SOURCE_DIR to $TARGET_DIR..."
+          rm -rf $TARGET_DIR/*
+          cp -r $SOURCE_DIR/* $TARGET_DIR/
           echo "✅ Deploy muvaffaqiyatli yakunlandi!"

@@ -2,9 +2,8 @@ name: Deploy Sustaflex Landing
 
 on:
   push:
-    branches: ["**"] # Har qanday branchga push bo'lganda ishlaydi
+    branches: ["**"]
 
-# GitHub'dagi "Read and write" tugmasi o'rniga kod orqali ruxsat beramiz
 permissions:
   contents: write
   packages: write
@@ -13,23 +12,42 @@ permissions:
 jobs:
   deploy:
     runs-on: [self-hosted, Linux, X64]
+    
+    # Bir vaqtda bir nechta build bo'lib ketsa, eski jarayonni to'xtatadi
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+
     steps:
-      - name: Checkout repository
+      - name: 📂 Repo-ni ko'chirib olish
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 🟢 Node.js o'rnatish
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm' # npm keshini ishlatadi (tezroq build)
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
-
-      - name: Copy files to web folder
+      - name: 📦 Kutubxonalarni o'rnatish
         run: |
-          # Serverdagi papkani tozalash va yangi buildni nusxalash
-          rm -rf /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/*
-          cp -r out/* /home/user/Projects/Euphoria/lands/sustaflex-landing.uz/
+          echo "Dependencies o'rnatilmoqda..."
+          npm ci
+
+      - name: 🏗️ Loyihani Build qilish
+        run: |
+          echo "Loyiha build qilinmoqda..."
+          npm run build
+
+      - name: 🚀 Serverga Deploy qilish
+        run: |
+          echo "Eski fayllar tozalanmoqda..."
+          TARGET_DIR="/home/user/Projects/Euphoria/lands/sustaflex-landing.uz"
+          
+          # Papka mavjudligini tekshirish, bo'lmasa yaratish
+          mkdir -p $TARGET_DIR
+          
+          # Fayllarni xavfsiz nusxalash
+          rm -rf $TARGET_DIR/*
+          cp -r out/* $TARGET_DIR/
+          
+          echo "✅ Deploy muvaffaqiyatli yakunlandi!"
